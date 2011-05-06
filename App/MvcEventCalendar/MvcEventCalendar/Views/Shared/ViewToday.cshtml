@@ -1,0 +1,36 @@
+﻿@model IEnumerable<MvcEventCalendar.Models.Event>
+@helper Truncate(string input, int length)
+    {
+        if (input.Length <= length)
+        {
+    @input
+        }
+        else
+        {
+    @input.Substring(0, length)<text>...</text>
+        }
+}
+<h3>
+    <em>Today's</em> events</h3>
+<div id="event-list">
+    @foreach (var theEvent in Model)
+    {   
+        <hr style="padding: 0"/>
+        <div style="clear: both; padding-left: 0px; padding-top: 20px; border-top: 1px solid #8A887D">
+            <div style="float: left; padding-left: 0px;padding-right: 10px;padding-bottom: 20px;">
+                <a href="@Url.Action("Details", "Event", new { id = theEvent.EventId })">
+                    <img alt="@theEvent.Title" src="@theEvent.EventPlaceUrl" width="87" height="87"/>
+                </a>
+            </div>
+            <div style="float: left">
+                <h2>
+                    <a href="@Url.Action("Details", "Event", new { id = theEvent.EventId })">
+                        <span style="font-size:1em; text-decoration:none; color:blue; padding:0; margin:0; font-style:normal">@theEvent.Title</span></a></h2>
+                        <span class="autoDate">@Truncate(theEvent.EventDate.ToString(), 9)</span><span>@theEvent.StartTime</span>
+                        <br /><span>@theEvent.Place.Name</span><br />
+                        <iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.greenfieldzenergy.com%3A54659&amp;send=false&amp;layout=standard&amp;width=400&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=lucida+grande&amp;height=35" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:400px; height:35px;" allowTransparency="true"></iframe>
+            </div>
+        </div>
+    }
+</div>
+

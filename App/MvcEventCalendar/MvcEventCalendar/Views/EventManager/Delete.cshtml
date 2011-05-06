@@ -1,0 +1,18 @@
+﻿@model MvcEventCalendar.Models.Event
+@{
+    ViewBag.Title = "Delete";
+}
+<h2>
+    Delete Confirmation</h2>
+<p>
+    Are you sure you want to delete the event titled <strong>@Model.Title</strong>?
+</p>
+@using (Html.BeginForm())
+{
+    <p>
+        <input type="submit" value="Delete" />
+    </p>
+    <p>
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

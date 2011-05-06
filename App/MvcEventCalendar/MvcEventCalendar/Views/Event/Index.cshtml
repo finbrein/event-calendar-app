@@ -1,0 +1,59 @@
+﻿@model PagedList.IPagedList<MvcEventCalendar.Models.Event>
+
+@{
+    ViewBag.Title = "Events";
+}
+
+
+<div class="genre">
+    <h3>
+        <em>Events</em> Events</h3>
+    <div id="event-list">
+        @foreach (var theEvent in Model)
+        {
+            <a href="@Url.Action("Details", new { id = theEvent.EventId })">
+                <img alt="@theEvent.Title" src="@theEvent.EventPlaceUrl"/>
+                <span>@theEvent.Title</span> </a><br />
+        }
+    </div>
+</div>
+
+<div><br /><br />
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
+    of @Model.PageCount
+    &nbsp;
+    @if (Model.HasPreviousPage)
+    {
+        @Html.ActionLink("<<", "Index", new { page = 1, sortOrder = ViewBag.CurrentSort, currentFilter=ViewBag.CurrentFilter  })
+        @Html.Raw("&nbsp;");
+        @Html.ActionLink("< Prev", "Index", new { page = Model.PageNumber - 1, sortOrder = ViewBag.CurrentSort, currentFilter=ViewBag.CurrentFilter  })
+    }
+    else
+    {
+        @:<<
+        @Html.Raw("&nbsp;");
+        @:< Prev
+    }
+    &nbsp;
+    @if (Model.HasNextPage)
+    {
+        @Html.ActionLink("Next >", "Index", new { page = Model.PageNumber + 1, sortOrder = ViewBag.CurrentSort, currentFilter=ViewBag.CurrentFilter  })
+        @Html.Raw("&nbsp;");
+        @Html.ActionLink(">>", "Index", new { page = Model.PageCount, sortOrder = ViewBag.CurrentSort, currentFilter=ViewBag.CurrentFilter  })
+    }
+    else
+    {
+        @:Next >
+        @Html.Raw("&nbsp;")
+        @:>>
+    }
+</div>
+
+
+
+
+
+
+
+
+

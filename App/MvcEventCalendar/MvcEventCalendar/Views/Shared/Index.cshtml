@@ -1,0 +1,40 @@
+﻿@model IEnumerable<MvcEventCalendar.Models.Event>
+@using MvcEventCalendar.Helpers
+@{
+    ViewBag.Title = "Event Manager - All Events";
+}
+<h2>
+    Index</h2>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+        </th>
+        <th>
+            Title
+        </th>
+        <th>
+            Place
+        </th>
+        <th>
+            Category
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.EventId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.EventId })
+            </td>
+            <td>@Html.Truncate(item.Title, 25)
+            </td>
+            <td>@Html.Truncate(item.Place.Name, 25)
+            </td>
+            <td>@item.Category.Name
+            </td>
+        </tr>
+    }
+</table>

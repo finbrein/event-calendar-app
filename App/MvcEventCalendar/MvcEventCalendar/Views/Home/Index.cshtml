@@ -1,0 +1,46 @@
+﻿@model List<MvcEventCalendar.Models.Event>
+@helper Truncate(string input, int length)
+    {
+        if (input.Length <= length)
+        {
+    @input
+        }
+        else
+        {
+    @input.Substring(0, length)<text>...</text>
+        }
+}
+@{
+    ViewBag.Title = "ASP.NET MVC Event Calendar";
+}
+    <script src="@Url.Content("~/Scripts/jquery.cycle.all.js")" type="text/javascript"></script>
+<h1 id="banner">
+    Featured events</h1>
+<div id="promotion">
+    @foreach (var theEvent in Model)
+    {
+    
+        <a href="@Url.Action("Details", "Event", new { id = theEvent.EventId })">
+            <img style="float: left; padding-top: 10px; padding-right: 10px;padding-bottom: 20px;" alt="@theEvent.Title" src="@theEvent.EventPlaceUrl" width="250" height="250"/>
+            <span style="float:left">
+                <h2 style="color: Blue; font-style: normal">@Truncate(theEvent.Title, 45)</h2>                
+                <p>When</p>
+                <p><span class="autoDate">@Truncate(theEvent.EventDate.ToString(), 9)</span><span>@theEvent.StartTime</span></p>
+                <p>Where</p>
+                <p><span>@theEvent.Place.Name</span></p>
+            </span></a> 
+ 
+    
+    }
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#promotion').cycle({
+            fx: 'fade' // choose your transition type, ex: fade, scrollUp, shuffle, etc...
+        });
+    });
+</script>
+@{Html.RenderPartial("ViewToday");}
+
+
+

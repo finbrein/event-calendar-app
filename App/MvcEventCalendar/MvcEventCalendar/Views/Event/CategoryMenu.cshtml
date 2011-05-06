@@ -1,0 +1,14 @@
+﻿@model MvcEventCalendar.Models.Event
+<script src="@Url.Content("~/Scripts/myscript.js")" type="text/javascript"></script>
+<p id="categories">
+    @Html.LabelFor(model => model.Category)
+@Html.DropDownListFor(
+    model => model.Category,
+    new SelectList(ViewBag.Categories, "CategoryId", "Name"), "-- Select Category --",
+    new { @class = "category", data_browse_url = @Url.Action("Browse", "Event") }
+    )
+    @Html.ValidationMessageFor(model => model.Category)
+</p>
+
+
+

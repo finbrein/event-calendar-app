@@ -1,0 +1,10 @@
+C:\sep\MvcEventCalendar\MvcEventCalendar\bin\MvcEventCalendar.dll
+C:\sep\MvcEventCalendar\MvcEventCalendar\bin\MvcEventCalendar.pdb
+C:\sep\MvcEventCalendar\MvcEventCalendar\obj\Debug\ResolveAssemblyReference.cache
+C:\sep\MvcEventCalendar\MvcEventCalendar\obj\Debug\MvcEventCalendar.dll
+C:\sep\MvcEventCalendar\MvcEventCalendar\obj\Debug\MvcEventCalendar.pdb
+C:\sep\MvcEventCalendar\MvcEventCalendar\bin\EntityFramework.dll
+C:\sep\MvcEventCalendar\MvcEventCalendar\bin\EntityFramework.xml
+C:\sep\MvcEventCalendar\MvcEventCalendar\bin\PagedList.dll
+C:\sep\MvcEventCalendar\MvcEventCalendar\bin\PagedList.pdb
+C:\sep\MvcEventCalendar\MvcEventCalendar\bin\PagedList.xml

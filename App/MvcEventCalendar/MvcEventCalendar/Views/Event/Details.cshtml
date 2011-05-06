@@ -1,0 +1,26 @@
+﻿@model MvcEventCalendar.Models.Event
+@{
+    ViewBag.Title = "Event - " + Model.Title;
+}
+<h2>
+    Event: @Model.Title</h2>
+<p>
+    <img alt="@Model.Title" src="@Model.EventPlaceUrl" width="217" height="217"/>
+</p>
+<div id="event-details">
+    <p>
+        <em>Category:</em>
+        @Model.Category.Name
+    </p>
+    <p>
+        <em>Place:</em>
+        @Model.Place.Name
+    </p>
+    <p>
+        <em>Price:</em>
+        @String.Format("{0:F}", Model.Price)
+    </p>
+    <p class="button">
+        @Html.ActionLink("Add to cart", "AddToCart", "ShoppingCart", new { id = Model.EventId }, "")
+    </p>
+</div>

@@ -1,0 +1,16 @@
+﻿@model MvcEventCalendar.Models.Category
+@{
+    ViewBag.Title = "Browse Events";
+}
+<div class="genre">
+    <h3>
+        <em>@Model.Name</em> Events</h3>
+    <div id="event-list">
+        @foreach (var theEvent in Model.Events)
+        {
+            <a href="@Url.Action("Details", new { id = theEvent.EventId })">
+                <img alt="@theEvent.Title" src="@theEvent.EventPlaceUrl"/>
+                <span>@theEvent.Title</span> </a><br />
+        }
+    </div>
+</div>
